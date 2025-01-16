@@ -1,10 +1,10 @@
-import { createHash } from 'node:crypto';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { Account } from '@planetarium/account';
 import { BencodexDictionary, type Value, encode } from '@planetarium/bencodex';
 import type { UnsignedTx } from '@planetarium/tx/dist/tx';
 import type { Job, TxResult } from '@prisma/client';
+import { createHash } from 'node:crypto';
 
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
@@ -40,7 +40,7 @@ export class TxService {
       ),
       new KMSClient(
         nullableAwsAccessKeyId !== undefined &&
-          nullableAwsSecretAccessKey !== undefined
+        nullableAwsSecretAccessKey !== undefined
           ? {
               credentials: {
                 accessKeyId: nullableAwsAccessKeyId,
@@ -139,7 +139,7 @@ export class TxService {
       gasLimit: this.assumeGasLimit(action),
       maxGasPrice: {
         currency: CURRENCIES.MEAD,
-        rawValue: 10n ** 18n,
+        rawValue: 10n ** 15n,
       },
     };
 
