@@ -139,7 +139,7 @@ export class TxService {
       gasLimit: this.assumeGasLimit(action),
       maxGasPrice: {
         currency: CURRENCIES.MEAD,
-        rawValue: 10n ** 15n,
+        rawValue: 10n ** 13n,
       },
     };
 
